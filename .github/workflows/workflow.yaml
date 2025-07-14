@@ -48,10 +48,10 @@ jobs:
     - name: Terraform Plan
       run: |
         cd terraform
-        terraform plan -var-file="../tfvars/devops.tfvars" -no-color
+        terraform plan -var-file="/tfvars/devops.tfvars" -no-color
       
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: |
         cd terraform
-        terraform apply -var-file="../tfvars/devops.tfvars" -auto-approve -no-color
+        terraform apply -var-file="/tfvars/devops.tfvars" -auto-approve -no-color
